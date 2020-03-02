@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+               <div class="row">
+                  <div class="col-md-7 center-item">
+                     <img src="images/product-1.png" alt="">
+                     <h5>iPhone 11 128GB Black</h5>
+                  </div>
+
+                  <div class="col-md-5 center-item">
+                     <div class="input-group number-spinner">
+                        <button id="minusBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                        <input id="inputNumber" type="text" class="form-control text-center" value="1">
+                        <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                     </div>
+                     <h5>$ <span id="price">1200</span></h5>
+                     <img src="images/remove.png" alt="" class="remove-item">
+                  </div>
+               </div>
+
+            </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minusBtn2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputNumber2" type="text" class="form-control text-center" value="1">
+                           <button id="plusBtn2" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$ <span id="price2">70</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id="subtotal">1270</span></h5>
+                        <h5>$00</h5>
+                        <h5>$ <span id="total">00</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+      <script>
+         const plusBtn = document.getElementById("plusBtn");
+         const addInputNumber = document.getElementById("inputNumber");
+         const minusBtn = document.getElementById("minusBtn");
+
+         // Phone Event handler 
+         plusBtn.addEventListener("click", function(){
+            addInputNumber.value = parseInt(addInputNumber.value) + 1;
+
+            const price = document.getElementById("price").innerText;
+            const priceAmount = parseInt(price);
+            const totalAmount = 1200 + priceAmount; 
+
+            document.getElementById("price").innerText = totalAmount;
+
+            // Auto Add Amount 
+            const subtotal = document.getElementById("subtotal").innerText;
+            const addSubtotal = parseInt(subtotal);
+            const total = 1200 + addSubtotal;
+
+            document.getElementById("subtotal").innerText = total;
+
+         });
+
+         minusBtn.addEventListener("click", function (){
+            addInputNumber.value = parseInt(addInputNumber.value) -1;
+
+            const price = document.getElementById("price").innerText;
+            const priceAmount = parseInt(price);
+            const totalAmount2 = priceAmount - 1200;            
+
+            document.getElementById("price").innerText = totalAmount2;
+
+            // Minus Amount 
+            const subtotal = document.getElementById("subtotal").innerText;
+            const addSubtotal = parseInt(subtotal);
+            const total2 = addSubtotal - 1200;
+
+            document.getElementById("subtotal").innerText = total2;
+
+         });
+
+
+
+         // Casing Event handler 
+         const plusBtn2 = document.getElementById("plusBtn2");
+         const addInputNumber2 = document.getElementById("inputNumber2");
+         const minusBtn2 = document.getElementById("minusBtn2");
+
+
+         plusBtn2.addEventListener("click", function(){
+            addInputNumber2.value = parseInt(addInputNumber2.value) + 1;
+
+            const price2 = document.getElementById("price2").innerText;
+            const priceAmount2 = parseInt(price2);
+            const totalAmount2 = 70 + priceAmount2; 
+
+            document.getElementById("price2").innerText = totalAmount2;
+
+            // Auto Add Amount 
+            const subtotal = document.getElementById("subtotal").innerText;
+            const addSubtotal = parseInt(subtotal);
+            const total = 70 + addSubtotal;
+
+            document.getElementById("subtotal").innerText = total;
+
+         });
+
+         minusBtn2.addEventListener("click", function (){
+            addInputNumber2.value = parseInt(addInputNumber2.value) -1;
+
+            const price2 = document.getElementById("price2").innerText;
+            const priceAmount2 = parseInt(price2);
+            const totalAmount2 = priceAmount2 - 70;            
+
+            document.getElementById("price2").innerText = totalAmount2;
+
+            // Minus Amount 
+            const subtotal = document.getElementById("subtotal").innerText;
+            const addSubtotal = parseInt(subtotal);
+            const total2 = addSubtotal - 70;
+
+            document.getElementById("subtotal").innerText = total2;
+         });
+
+
+
+
+
+
+
+
+
+      </script>
+
+   <!-- <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="content">
+               <form>
+                  
+                  <input type="button" onclick="decrementValue()" value="Decrement">
+                  <input type="text" id="number" value="0"/>
+                  <input type="button" onclick="incrementValue()" value="Increment" />
+               </form>
+
+               <script>
+                  function incrementValue(){
+                     var value = parseInt(document.getElementById('number').value);
+                     value = isNaN(value) ? 0 : value;
+                     value++;
+                     document.getElementById('number').value = value;
+                  }
+
+                  function decrementValue(){
+                     var value = parseInt(document.getElementById('number').value);
+                     value = isNaN(value) ? 0 : value;
+                     value--;
+                     document.getElementById('number').value = value;
+                  }  
+               </script>
+            </div>
+         </div>
+      </div>
+   </div> -->
+</body>
+
+</html>
